@@ -13,29 +13,9 @@
     },
 
     requests: {
-      fetchCustomer: function (customerId) {
-        return {
-          url: 'https://app.promoter.io/api/contacts/'+customerId,
-          type:'GET',
-          headers: {
-            Authorization: 'Token '+this.settings.api_key
-          },
-          dataType: 'json'
-        };
-      },
       fetchCustomerFeedbackByEmail: function (email) {
         return {
-          url: 'https://app.promoter.io/api/feedback/?survey__contact__email='+email,
-          type:'GET',
-          headers: {
-            Authorization: 'Token '+this.settings.api_key
-          },
-          dataType: 'json'
-        };
-      },
-      fetchCustomersByEmail: function (email) {
-        return {
-          url: 'https://app.promoter.io/api/contacts/?email='+email,
+          url: 'https://app.promoter.io/api/feedback/?survey__contact__email='+email.replace(/\+/g, '%2B'),
           type:'GET',
           headers: {
             Authorization: 'Token '+this.settings.api_key
@@ -66,35 +46,6 @@
       return promoterFeedback;
     },
 
-    cache: function (key, data) {
-      this.store(key, data);
-    },
-
-    cachePromoterCustomerSearch: function (promoterCustomers) {
-      var customerIds = [];
-      if (promoterCustomers.results && promoterCustomers.results.length) {
-        for (var i = promoterCustomers.results.length - 1; i >= 0; i--) {
-          var customer = this.buildCustomerFromPromoterCustomer(promoterCustomers.results[i]);
-          customerIds.push(customer.id);
-        }
-        this.cache('customerIds', customerIds);
-      }
-    },
-
-    cacheClear: function (key) {
-
-    },
-
-    cacheFetch: function (key, default_value) {
-      default_value = default_value || null;
-      try {
-        var value = this.store(key);
-        return value ? value : default_value;
-      } catch (error) {
-        return default_value;
-      }
-    },
-
     clone: function(obj) {
       if (null == obj || "object" != typeof obj) {
         return obj;
@@ -109,10 +60,6 @@
     formatDateString: function (date_string, format) {
       format = format || this.resources.DATE_FORMAT;
       return moment(date_string).format(format);
-    },
-
-    formatMoney: function (number) {
-      return '$' + parseFloat(Math.round(number * 100) / 100).toFixed(2);
     },
 
     getCustomerEmail: function () {
