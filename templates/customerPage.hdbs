@@ -1,0 +1,90 @@
+<div class="app_body">
+  {{#if error_message}}
+  <div class="alert alert-block">
+    <p><strong>Welp!</strong> {{error_message}}</p>
+  </div>
+  {{/if}}
+  {{#if average_score}}
+  <div class="well">
+    <h1>Average Score: {{average_score}}</h1>
+  </div>
+  {{/if}}
+  {{#if feedbacks}}
+  {{#each feedbacks}}
+  <div class="panel panel-default reveal-hide not-visible">
+    <div class="panel-heading">
+      <a href="#" class="toggle-reveal-hide">
+        <img src="{{assetURL 'show.png'}}" alt="show" class="show" />
+        <img src="{{assetURL 'hide.png'}}" alt="hide" class="hide" />
+      </a>
+      <span class="label">{{this.score}}</span>
+      <span class="label label-{{this.score_class}}">{{this.score_type}}</span>
+    </div>
+    <div class="panel-body">
+      <h2>Comment</h2>
+      <blockquote>
+        <p>{{this.comment}}</p>
+      </blockquote>
+      <table class="table table-striped table-hover table-condensed">
+        <tbody>
+          <tr>
+            <td>Id</td>
+            <td><a href="{{this.href}}" target="_blank">{{this.id}}</a></td>
+          </tr>
+          <tr>
+            <td>Posted</td>
+            <td>{{this.formatted_posted_date}}</td>
+          </tr>
+          <tr>
+            <td>Last Updated</td>
+            <td>{{this.formated_comment_updated_date}}</td>
+          </tr>
+          <tr>
+            <td>Follow-up</td>
+            <td class="dont-break-out"><a href="{{this.followup_href}}" target="_blank">{{this.followup_href}}</a></td>
+          </tr>
+        </tbody>
+      </table>
+      <h2>Customer</h2>
+      <table class="table table-striped table-hover table-condensed">
+        <tbody>
+          <tr>
+            <td>Id</td>
+            <td>{{this.contact.id}}</td>
+          </tr>
+          <tr>
+            <td>Name</td>
+            <td>{{this.contact.full_name}}</td>
+          </tr>
+          <tr>
+            <td>Email</td>
+            <td>{{this.contact.email}}</td>
+          </tr>
+          <tr>
+            <td>Unsubscribed</td>
+            <td>{{this.contact.formatted_unsubscribed}}</td>
+          </tr>
+          <tr>
+            <td>Created</td>
+            <td>{{this.contact.formatted_created_date}}</td>
+          </tr>
+        </tbody>
+      </table>
+      {{#if this.contact.attributes}}
+      <h2>Attributes</h2>
+      <table class="table table-striped table-hover table-condensed">
+        <tbody>
+        {{#each this.contact.attributes}}
+        <tr>
+          <td>{{@key}}</td>
+          <td>{{this}}</td>
+        </tr>
+        {{/each}}
+        </tbody>
+      </table>
+      {{/if}}
+    </div>
+  </div>
+  {{/each}}
+  {{/if}}
+</div>

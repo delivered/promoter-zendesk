@@ -1,0 +1,136 @@
+h2 {
+    font-size: 1em;
+}
+
+span.code {
+    margin: 10px 0;
+    display: block;
+    overflow-y: scroll;
+}
+
+.no-data {
+    text-align: center;
+    padding: 20%;
+}
+
+.customer-list li {
+    height: auto !important;
+}
+
+.customer-list li small {
+    display: block;
+}
+
+
+.panel {
+    margin-bottom: 20px;
+    background-color: #fff;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.05);
+    box-shadow: 0 1px 1px rgba(0,0,0,.05);
+}
+
+.panel-default {
+    border-color: #ddd;
+}
+
+.panel-heading {
+    padding: 10px 15px;
+    border-bottom: 1px solid transparent;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+}
+
+.panel-heading .label {
+    font-size: 1.0em;
+}
+
+.panel-default > .panel-heading {
+    color: #333;
+    background-color: #f5f5f5;
+    border-color: #ddd;
+}
+
+.panel-body {
+    padding: 5px;
+}
+
+.panel-footer {
+    padding: 10px 15px;
+    background-color: #f5f5f5;
+    border-top: 1px solid #ddd;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+
+blockquote {
+  background: #f9f9f9;
+  padding: 0.5em 10px;
+  quotes: "\201C""\201D""\2018""\2019";
+}
+blockquote:before {
+  color: #ccc;
+  content: open-quote;
+  font-size: 4em;
+  line-height: 0.1em;
+  margin-right: 0.25em;
+  vertical-align: -0.4em;
+}
+blockquote p {
+  display: inline;
+}
+
+.dont-break-out {
+
+  /* These are technically the same, but use both */
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+
+  -ms-word-break: break-all;
+  /* This is the dangerous one in WebKit, as it breaks things wherever */
+  word-break: break-all;
+  /* Instead use this non-standard one: */
+  word-break: break-word;
+
+  /* Adds a hyphen where the word breaks, if supported (No Blink) */
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+
+}
+
+.reveal-hide a.toggle-reveal-hide {
+  float: right;
+}
+
+.reveal-hide a.toggle-reveal-hide img {
+  width: 20px;
+  height: 20px;
+}
+
+.reveal-hide.visible img.show {
+  display: none;
+}
+
+.reveal-hide.visible img.hide {
+  display: inline-block;
+}
+
+.reveal-hide.visible .panel-body {
+  display: block;
+}
+
+.reveal-hide.not-visible img.show {
+  display: inline-block;
+}
+
+.reveal-hide.not-visible img.hide {
+  display: none;
+}
+
+.reveal-hide.not-visible .panel-body {
+  display: none;
+}
+
