@@ -27,6 +27,8 @@ When feedback data is found a list of all the feedback events will be displayed.
 
 Also presented will be an average score. The average score is computed client-side based on all the feedback data returned.
 
+![feedback summary](https://d17oy1vhnax1f7.cloudfront.net/items/3I3Z0F0E040Y3I303b3q/Screen%20Shot%202016-09-27%20at%2011.34.57%20AM.png?v=6a95f4d1)
+
 ## Contributing
 
 Please see [CONTRIBUTING](https://github.com/delivered/promoter-zendesk/blob/master/CONTRIBUTING.md) for details.
